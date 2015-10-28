@@ -40,6 +40,22 @@
 .bypass p{position: relative;left: -120%;}
 .the-mark p{position: relative;bottom: -120%;}
 .collection p{display: none;}
+.landing-page{
+  background: url(../img/1920-1.jpg) 50%;
+  transition: all 1s ease-in-out;
+}
+.bypass{
+  background: url(../img/1920-4.jpg) 50%;
+  transition: all 1s ease-in-out;
+}
+.the-mark{
+  background: url(../img/1920-7.jpg) 50%;
+  transition: all 1s ease-in-out;
+}
+.collections{
+  background: url(../img/1920-9.jpg) 50%;
+  transition: all 1s ease-in-out;
+}
 #main_header{
     position: fixed;
     display: block;

@@ -1,6 +1,9 @@
 $(function(){
-	$('#fullContainer').fullpage({
-		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+	$('#superContainer').fullpage({
+		navigation: true,
+		navigationPosition: 'left',
+		navigationTooltips: ['landing page', 'bypass', 'the mark','collections'],
+		showActiveTooltip: true,
 		afterLoad: function(anchorLink, index){
 			if(index == 2){
 				$('.bypass').find('p').delay(500).animate({
