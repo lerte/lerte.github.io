@@ -1,7 +1,23 @@
 $(function(){
+	/* 
+	 * THE MARK
+
+	 * T MARK 
+	   DIAMOND
+	   WORLD
+
+	 * DIAMOND
+	   A LIFE
+	   JOURNEY
+
+	 * 4T
+
+	 * MOMENTS
+	 */
 	$('#superContainer').fullpage({
 		navigation: true,
 		navigationPosition: 'left',
+		anchors: ['landing','bypass','themark','collections'],
 		navigationTooltips: ['landing page', 'bypass', 'the mark','collections'],
 		showActiveTooltip: true,
 		afterLoad: function(anchorLink, index){
