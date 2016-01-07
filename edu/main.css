@@ -103,7 +103,7 @@ body{
 	-webkit-animation: load 0.73s ease infinite;
 }
 .m-loading span:last-child{
-	margin-right: 0px; 
+	margin-right: 0px;
 }
 @-webkit-keyframes load{
 	0%{
@@ -413,10 +413,8 @@ i:hover{
 .m-show img{
 	width: 20%;
 	float: left;
-	box-sizing: border-box;
-}
-.m-show img + img{
 	padding-left: 4px;
+	box-sizing: border-box;
 }
 .g-main{
 	float: left;
@@ -494,7 +492,7 @@ i:hover{
 	font: 12px/21px "Microsoft YaHei";
 }
 .u-cover .thumb .btn .normal{
-	color: #ff3f00;	
+	color: #ff3f00;
 }
 .u-cover:hover > .wraphover{
 	display: block;
