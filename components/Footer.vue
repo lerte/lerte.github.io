@@ -1,7 +1,7 @@
 <template lang="pug">
   div.container
     div.content.has-text-centered
-      p &copy; Copyright 2012-{{currentYear}} Lerte All Rights Reserved.
+      p &copy; Copyright {{currentYear}} Lerte All Rights Reserved.
 </template>
 
 <script>

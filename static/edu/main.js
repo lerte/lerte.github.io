@@ -78,7 +78,7 @@
 		/* 关注请求API */
 		var follow = function() {
 			var xhr = createXMLHttpRequest();
-			var url = "http://study.163.com/webDev/attention.htm";
+			var url = "//study.163.com/webDev/attention.htm";
 			xhr.open("GET", url, true);
 			xhr.onreadystatechange = function() {
 				if(xhr.readyState == 3) {
@@ -143,7 +143,7 @@
 		/* 登录请求API */
 		var login = function(username, password) {
 			var xhr = createXMLHttpRequest();
-			var url = "http://study.163.com/webDev/login.htm?userName="+username+"&password="+password;
+			var url = "//study.163.com/webDev/login.htm?userName="+username+"&password="+password;
 			xhr.open("GET", url, true);
 			xhr.onreadystatechange = function() {
 				if(xhr.readyState == 3) {
@@ -227,7 +227,7 @@
 			var type = arguments[2] ? arguments[2] : 10;
 			var xhr = createXMLHttpRequest();
 			var courselistinner = document.getElementById("courselistinner");
-			var url = "http://study.163.com/webDev/couresByCategory.htm?pageNo="+pageNo+"&psize="+psize+"&type="+type;
+			var url = "//study.163.com/webDev/couresByCategory.htm?pageNo="+pageNo+"&psize="+psize+"&type="+type;
 			xhr.open("GET", url, true);
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 3) {
