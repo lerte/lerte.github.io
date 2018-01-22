@@ -2,7 +2,7 @@
   div.container
     ul
       li(v-for='content in contents' :key='content.id')
-        nuxt-link(:to='content.name') {{content.name}}
+        nuxt-link(:to='{path: content.name, query:{sha: content.sha}}') {{content.name}}
     p
       nuxt-link(to='/') Back to home
 </template>

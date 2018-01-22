@@ -1,13 +1,13 @@
 <template lang="pug">
   div.container
-    .content {{window.atob(contents.content)}}
+    pre {{contents}}
 </template>
 
 <script>
 import config from '../config.js'
 export default {
-  async asyncData ({ app, params }) {
-    const contents = await app.$axios.$get(`https://api.github.com/repos/${config.repo}/contents/${config.path}/${params.slug}?ref=${config.branch}`, {
+  async asyncData ({ app, query }) {
+    const contents = await app.$axios.$get(`https://api.github.com/repos/${config.repo}/git/blobs/${query.sha}`, {
       headers: config.headers
     })
     return { contents }

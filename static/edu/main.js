@@ -304,7 +304,7 @@
 		var gethotcoures = function() {
 			var xhr = new createXMLHttpRequest();
 			var hottoplistinner = document.getElementById("hottoplistinner");
-			var url = "http://study.163.com/webDev/hotcouresByCategory.htm";
+			var url = "//study.163.com/webDev/hotcouresByCategory.htm";
 			xhr.open("GET", url, true);
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 3) {

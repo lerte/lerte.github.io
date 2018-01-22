@@ -1,44 +1,32 @@
 <template lang="pug">
   .container
     .content
-        p   This is definitely hard to describe myself.
-        table.is-bordered.is-striped.is-narrow.is-hoverable.is-fullwidth
-            thead
-                tr 
-                    h4 Basic Information:
-            tbody
-                tr
-                    th  
-                        i.fa.fa-graduation-cap(aria-hidden='true') 
-                        span Graduated:
-                    td  CCNU(华中师范大学)
-                tr
-                    th  
-                        i.fa.fa-dot-circle-o(aria-hidden='true')
-                        span Major:
-                    td  Compute Science & Technology
-                tr
-                    th
-                        i.fa.fa-heart(aria-hidden='true')
-                        span Favorite:
-                    td  🎸Guitar 🎹Pinao
-            thead
-                tr 
-                    h4 Information:
-            tbody
-                tr
-                    th  
-                        i.fa.fa-graduation-cap(aria-hidden='true') 
-                        span Graduated:
-                    td  CCNU(华中师范大学)
-                tr
-                    th  
-                        i.fa.fa-dot-circle-o(aria-hidden='true')
-                        span Major:
-                    td  Compute Science & Technology
-                tr
-                    th
-                        i.fa.fa-heart(aria-hidden='true')
-                        span Favorite:
-                    td  🎸Guitar 🎹Pinao
+        blockquote This is definitely hard to describe myself.
+        h3 Comprehensive Ability
+        span HTML(Pug, Handlebars)
+        progress.progress.is-small(value="95" max="100")
+        span CSS(stylus sass)
+        progress.progress.is-small(value="90" max="100")
+        span JavasScript(TypeScript, Node.js, Vue.js, React etc.)
+        progress.progress.is-small(value="70" max="100")
+        span PHP(WordPress etc.)
+        progress.progress.is-small(value="60" max="100")
+        span Photoshop
+        progress.progress.is-small(value="55" max="100")
+        h3 System & Software
+        p
+            i.fa.fa-apple  Mac/
+            i.fa.fa-linux  Linux/
+            i.fa.fa-windows  Windows
+        p Visual Studio Code, Sublime Text, Webstorm
+        h3 Social
+        p
+            a(href='//github.com/lerte')
+                i.fa.fa-github(aria-hidden='true')  Github
+        p
+            a(href='mailto:159274519@qq.com')
+                i.fa.fa-envelope-open-o(aria-hidden='true')  159274519@qq.com
+        h3 Favorite
+        p 🎸 Guitar
+        p 🎹 Piano
 </template>
