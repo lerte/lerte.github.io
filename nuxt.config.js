@@ -1,19 +1,16 @@
 module.exports = {
   head: {
-    title: 'Lerte',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Lerte Smith Personal Website' }
-    ],
+    title: 'Web & Program & Design & Art',
+    titleTemplate: 'Lerte | %s',
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css' },
+      { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/bulma/css/bulma.min.css' }
     ]
   },
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/bulma',
-    '@nuxtjs/font-awesome'
+    '@nuxtjs/meta',
+    '@nuxtjs/manifest'
   ],
   build: {
     extend (config, ctx) {

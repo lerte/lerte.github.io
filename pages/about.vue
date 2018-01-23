@@ -1,7 +1,7 @@
 <template lang="pug">
   .container
     .content
-        blockquote This is definitely hard to describe myself.
+        blockquote Just have a little faith.
         h3 Comprehensive Ability
         span HTML(Pug, Handlebars)
         progress.progress.is-small(value="95" max="100")
@@ -30,3 +30,13 @@
         p 🎸 Guitar
         p 🎹 Piano
 </template>
+
+<script>
+  export default {
+    head () {
+      return {
+        title: 'About'
+      }
+    }
+  }
+</script>

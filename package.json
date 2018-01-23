@@ -5,9 +5,9 @@
   "author": "Lerte<Lerte@qq.com>",
   "private": true,
   "dependencies": {
-    "@nuxtjs/axios": "^4.2.1",
-    "@nuxtjs/bulma": "^1.0.2",
-    "@nuxtjs/font-awesome": "^1.0.2",
+    "@nuxtjs/manifest": "^2.1.0",
+    "@nuxtjs/meta": "^2.0.2",
+    "axios": "^0.17.1",
     "marked": "^0.3.6",
     "nuxt": "^1.0.0-rc11",
     "prismjs": "^1.8.1"
