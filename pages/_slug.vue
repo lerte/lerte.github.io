@@ -1,6 +1,6 @@
 <template lang="pug">
   div.container
-    pre {{contents}}
+    div.content(v-html='compiledMarkdown')
     p
       nuxt-link(to='/') Back to home
 </template>
@@ -8,6 +8,8 @@
 <script>
 import config from '../config.js'
 import axios from 'axios'
+import marked from 'marked'
+import Prism from 'prismjs'
 export default {
   head () {
     return {
@@ -16,19 +18,37 @@ export default {
   },
   data () {
     return {
-      contents: ''
+      content: ''
+    }
+  },
+  computed: {
+    compiledMarkdown () {
+      const renderer = new marked.Renderer()
+      renderer.heading = (text, level) => {
+        const slug = text.replace(/<(?:.|\n)*?>/gm, '').toLowerCase().replace(/[\s\n\t]+/g, '-')
+        return `<h${level} id="${slug}">${text}</h${level}>`
+      }
+      renderer.code = (code, lang) => {
+        const highlight = Prism.highlight(code, Prism.languages[lang] || Prism.languages.javascript)
+        return `<pre><code class="lang-${escape(lang, true)}">${highlight}</code></pre>`
+      }
+      marked.setOptions({
+        renderer,
+        breaks: true
+      })
+      return marked(this.content)
     }
   },
   methods: {
-    async getContents () {
+    async getContent () {
       let {data} = await axios.get(`https://api.github.com/repos/${config.repo}/git/blobs/${this.$route.query.sha}`, {
         headers: config.headers
       })
-      this.contents = data
+      this.content = data
     }
   },
   created () {
-    this.getContents()
+    this.getContent()
   }
 }
 </script>

@@ -9,6 +9,7 @@
 </template>
 
 <style lang="stylus">
+@import 'prismjs/themes/prism.css'
 header
   box-shadow: 0px 0px 5px 1px
 main
