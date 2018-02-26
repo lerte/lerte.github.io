@@ -1,8 +1,13 @@
 <template lang="pug">
   div.container
-    div.content(v-html='compiledMarkdown')
-    p
-      nuxt-link(to='/') Back to home
+    div.content(v-if='content')
+      div.article(v-html='compiledMarkdown')
+      div.backhome
+        nuxt-link(to='/')
+          span.icon
+            i.fa.fa-home
+          span Back to home
+    p(v-else) Loading...
 </template>
 
 <script>

@@ -1,8 +1,10 @@
 <template lang="pug">
   div.container
-    ul
-      li(v-for='content in contents' :key='content.id')
-        nuxt-link(:to='{path: content.name, query:{sha: content.sha}}') {{content.name}}
+    div.content
+      ul(v-if='contents')
+        li(v-for='content in contents' :key='content.id')
+          nuxt-link(:to='{path: content.name, query:{sha: content.sha}}') {{content.name}}
+      p(v-else) Loading...
 </template>
 
 <script>
