@@ -17,10 +17,8 @@ import marked from 'marked'
 import Prism from 'prismjs'
 export default {
   head () {
-    if (process.browser) {
-      return {
-        title: location.pathname.substring(1)
-      }
+    return {
+      title: process.browser ? location.pathname.substring(1) : ''
     }
   },
   data () {
