@@ -17,6 +17,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "deploy": "push-dir --dir=dist --branch=master --cleanup --verbose --allow-unclean",
     "precommit": "npm run lint"
