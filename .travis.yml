@@ -1,10 +1,13 @@
 language: node_js
 node_js:
   - "node"
-script:
-  - yarn run lint
-  - yarn run generate
-deploy:
+cache:
+  directories:
+    - node_modules
+install:
+  - yarn
+  - yarn generate
+deploy: 
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
