@@ -10,6 +10,7 @@
       div#navMenu.navbar-menu(:class="{'is-active': isActive}")
         div.navbar-start
           nuxt-link.navbar-item(to='/') Home
+          nuxt-link.navbar-item(to='/typescript') Typescript
           nuxt-link.navbar-item(to='/about') About
 </template>
 
@@ -36,6 +37,11 @@
 
 <script>
   export default {
+    watch: {
+      $route () {
+        this.isActive = false
+      }
+    },
     data () {
       return {
         isActive: false

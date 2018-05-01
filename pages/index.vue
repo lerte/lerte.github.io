@@ -3,7 +3,7 @@
     div.content
       ul(v-if='contents')
         li(v-for='content in contents' :key='content.id')
-          nuxt-link(:to='{path: content.name, query:{sha: content.sha}}') {{content.name}}
+          nuxt-link(:to='{path: content.name.split(".")[0], query:{sha: content.sha}}') {{content.name.split(".")[0]}}
       p(v-else) Loading...
 </template>
 

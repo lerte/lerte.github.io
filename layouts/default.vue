@@ -14,6 +14,8 @@ header
   box-shadow: 0px 0px 5px 1px
 main
   padding: 2rem
+ul li
+  list-style none  
 </style>
 
 <script>
