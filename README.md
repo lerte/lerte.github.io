@@ -1,3 +1,4 @@
+<a href="https://travis-ci.org/lerte/lerte.github.io"><img src="https://api.travis-ci.org/lerte/lerte.github.io.svg?branch=source" alt="Build Status"></a>
 # lerte.com
 
 > Vue Application built with Nuxt.js.
