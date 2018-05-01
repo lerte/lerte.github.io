@@ -12,6 +12,9 @@
                   span.icon
                     i.fa.fa-home
                   span Back to home
+            ul(v-else-if='contents')
+              li(v-for='content in contents' :key='content.id')
+                nuxt-link(:to='{path: content.name.split(".")[0], query:{sha: content.sha}}') {{content.name.split(".")[0]}}
             p(v-else) Loading...
 </template>
 
@@ -31,7 +34,7 @@ export default {
   },
   data () {
     return {
-      content: {},
+      content: '',
       contents: []
     }
   },
@@ -63,12 +66,13 @@ export default {
       this.content = data
     },
     async getContents () {
-      let {data} = await axios.get(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/contents/pages/${this.$route.params.slug}/?ref=master`, {
+      let {data} = await axios.get(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/contents/pages/${this.$route.params.slug}`, {
         headers: {Accept: 'application/vnd.github.v3.raw+json'}
       })
-      this.contents = data.filter((element) => {
-        return element.type === 'file'
-      })
+      this.contents = data
+      // this.contents = data.filter((element) => {
+      //   return element.type === 'file'
+      // })
     }
   },
   created () {
