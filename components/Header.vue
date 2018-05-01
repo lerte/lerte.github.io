@@ -4,6 +4,8 @@
       div.navbar-brand(:class='{showMenu: isActive}')
         nuxt-link.navbar-item(to='/')
           img(src="/favicon.ico")
+        a.navbar-item.is-hidden-desktop(href="//github.com/lerte/lerte.github.io" target="_blank")
+          i.fa.fa-lg.fa-github
         div.navbar-burger.burger(data-target='navMenu', @click='isActive = !isActive', :class='{showMenu: isActive}')
           each val in [1,2,3]
             span
@@ -12,6 +14,9 @@
           nuxt-link.navbar-item(to='/') Home
           nuxt-link.navbar-item(to='/typescript') Typescript
           nuxt-link.navbar-item(to='/about') About
+        div.navbar-end
+          a.navbar-item.is-hidden-mobile(href="//github.com/lerte/lerte.github.io" target="_blank")
+            i.fa.fa-lg.fa-github
 </template>
 
 <style lang="stylus">
