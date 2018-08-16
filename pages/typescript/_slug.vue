@@ -2,9 +2,9 @@
   .container
     .content
       .columns
-          .column.is-2
+          .column.is-3
             doc-nav
-          .column.is-10
+          .column.is-9
             div.content(v-if='content')
               div.article(v-html='compiledMarkdown')
               div.backhome
@@ -14,7 +14,7 @@
                   span Back to home
             ul(v-else-if='contents')
               li(v-for='content in contents' :key='content.id')
-                nuxt-link(:to='{path: content.name.split(".")[0], query:{sha: content.sha}}') {{content.name.split(".")[0]}}
+                nuxt-link(:to='{path: content.name.split(".")[0], query:{sha: content.sha}}') {{content.name.substr(0, content.name.lastIndexOf('.'))}}
             p(v-else) Loading...
 </template>
 
@@ -23,6 +23,7 @@ import axios from 'axios'
 import marked from 'marked'
 import Prism from 'prismjs'
 import DocNav from '~/components/TypescriptDocsNav.vue'
+import 'prismjs/plugins/custom-class/prism-custom-class.min.js'
 export default {
   components: {
     DocNav
@@ -46,6 +47,7 @@ export default {
         return `<h${level} id="${slug}">${text}</h${level}>`
       }
       renderer.code = (code, lang) => {
+        Prism.plugins.customClass.prefix('prism-')
         const highlight = Prism.highlight(code, Prism.languages[lang] || Prism.languages.javascript)
         return `<pre><code class="lang-${escape(lang, true)}">${highlight}</code></pre>`
       }
@@ -70,9 +72,6 @@ export default {
         headers: {Accept: 'application/vnd.github.v3.raw+json'}
       })
       this.contents = data
-      // this.contents = data.filter((element) => {
-      //   return element.type === 'file'
-      // })
     }
   },
   created () {

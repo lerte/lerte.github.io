@@ -1,6 +1,6 @@
 <template lang="pug">
   div.container
-    div.content(v-if='content')
+    div.contents(v-if='content')
       div.article(v-html='compiledMarkdown')
       div.backhome
         nuxt-link(to='/')
@@ -15,6 +15,7 @@ import config from '../config.js'
 import axios from 'axios'
 import marked from 'marked'
 import Prism from 'prismjs'
+import 'prismjs/plugins/custom-class/prism-custom-class.min.js'
 export default {
   head () {
     return {
@@ -34,6 +35,7 @@ export default {
         return `<h${level} id="${slug}">${text}</h${level}>`
       }
       renderer.code = (code, lang) => {
+        Prism.plugins.customClass.prefix('prism-')
         const highlight = Prism.highlight(code, Prism.languages[lang] || Prism.languages.javascript)
         return `<pre><code class="lang-${escape(lang, true)}">${highlight}</code></pre>`
       }
