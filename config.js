@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   repo: 'lerte/lerte.github.io',
   branch: 'blog',
   path: 'content',

@@ -1,11 +1,15 @@
-<template lang="pug">
-  div.wrapper
-    header
-      mHeader
-    main
-      nuxt
-    footer
-      mFooter
+<template>
+	<div class="wrapper">
+		<header>
+			<mHeader/>
+		</header>
+		<main>
+			<nuxt/>
+		</main>
+		<footer>
+			<mFooter/>
+		</footer>
+	</div>
 </template>
 
 <style lang="stylus">

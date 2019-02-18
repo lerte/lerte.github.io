@@ -1,7 +1,6 @@
-module.exports = {
+export default {
   head: {
-    title: 'Web & Program & Design & Art',
-    titleTemplate: 'Lerte | %s',
+    titleTemplate: 'Lerte - %s | Web & Program & Design & Art',
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css' },
@@ -9,20 +8,10 @@ module.exports = {
     ]
   },
   modules: [
-    '@nuxtjs/meta',
-    '@nuxtjs/manifest'
+    '@nuxtjs/pwa'
   ],
+  loading: { color: '#3B8070' },
   build: {
-    extend (config, ctx) {
-      if (ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  },
-  loading: { color: '#3B8070' }
+    extractCSS: true
+  }
 }

@@ -1,25 +1,32 @@
-<template lang="pug">
-  .container
-    .content
-      .columns
-          .column.is-3
-            doc-nav
-          .column.is-9
-            div.content(v-if='content')
-              div.article(v-html='compiledMarkdown')
-              div.backhome
-                nuxt-link(to='/')
-                  span.icon
-                    i.fa.fa-home
-                  span Back to home
-            ul(v-else-if='contents')
-              li(v-for='content in contents' :key='content.id')
-                nuxt-link(:to='{path: content.name.split(".")[0], query:{sha: content.sha}}') {{content.name.substr(0, content.name.lastIndexOf('.'))}}
-            p(v-else) Loading...
+<template>
+  <div class="container">
+    <div class="content">
+      <div class="columns">
+        <div class="column is-3">
+          <doc-nav></doc-nav>
+        </div>
+        <div class="column is-9">
+          <div class="content" v-if="content">
+            <div class="article" v-html="compiledMarkdown">
+              <div class="backhome">
+                <nuxt-link to="/"><span class="icon"><i class="fa fa-home"></i></span><span>Back to home</span></nuxt-link>
+              </div>
+            </div>
+          </div>
+          <ul v-else-if="contents.length">
+            <li v-for="content in contents" :key="content.id">
+              <nuxt-link :to="{path: content.name.split('')[0], query:{sha: content.sha}}">{{content.name.substr(0, content.name.lastIndexOf('.'))}}</nuxt-link>
+            </li>
+          </ul>
+          <p v-else>Loading...</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import config from '../../config.js'
 import marked from 'marked'
 import Prism from 'prismjs'
 import DocNav from '~/components/TypescriptDocsNav.vue'
@@ -33,12 +40,10 @@ export default {
       title: 'Typescript ' + this.$route.params.slug
     }
   },
-  data () {
-    return {
-      content: '',
-      contents: []
-    }
-  },
+  data: ()=> ({
+    content: '',
+    contents: []
+  }),
   computed: {
     compiledMarkdown () {
       const renderer = new marked.Renderer()
@@ -60,18 +65,16 @@ export default {
   },
   methods: {
     async getContent () {
-      let {data} = await axios.get(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/git/blobs/${this.$route.query.sha}`, {
-        headers: {
-          Accept: 'application/vnd.github.v3.raw+json'
-        }
+      let response = await fetch(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/git/blobs/${this.$route.query.sha}`, {
+        headers: config.headers
       })
-      this.content = data
+      this.content = await response.text()
     },
     async getContents () {
-      let {data} = await axios.get(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/contents/pages/${this.$route.params.slug}`, {
-        headers: {Accept: 'application/vnd.github.v3.raw+json'}
+      let response = await fetch(`https://api.github.com/repos/Microsoft/TypeScript-Handbook/contents/pages/${this.$route.params.slug}`, {
+        headers: config.headers
       })
-      this.contents = data
+      this.contents = await response.json()
     }
   },
   created () {

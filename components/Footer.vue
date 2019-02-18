@@ -1,16 +1,16 @@
-<template lang="pug">
-  div.container
-    div.content.has-text-centered
-      p &copy; Copyright {{currentYear}} Lerte All Rights Reserved.
+<template>
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>&copy; Copyright {{currentYear}} Lerte All Rights Reserved.</p>
+    </div>
+  </div>
 </template>
 
 <script>
   export default {
-    data () {
-      return {
-        isActive: false,
-        currentYear: new Date().getFullYear()
-      }
-    }
+    data: ()=> ({
+      isActive: false,
+      currentYear: new Date().getFullYear()
+    })
   }
 </script>

@@ -1,18 +1,17 @@
-<template lang="pug">
-  div.container
-    div.content(v-if='content')
-      div.article(v-html='compiledMarkdown')
-      div.backhome
-        nuxt-link(to='/')
-          span.icon
-            i.fa.fa-home
-          span Back to home
-    p(v-else) Loading...
+<template>
+  <div class="container">
+    <div class="content" v-if="content">
+      <div class="article" v-html="compiledMarkdown"></div>
+      <div class="backhome">
+        <nuxt-link to="/"><span class="icon"><i class="fa fa-home"></i></span><span>Back to home</span></nuxt-link>
+      </div>
+    </div>
+    <p v-else>Loading...</p>
+  </div>
 </template>
 
 <script>
 import config from '../config.js'
-import axios from 'axios'
 import marked from 'marked'
 import Prism from 'prismjs'
 export default {
@@ -45,11 +44,11 @@ export default {
     }
   },
   methods: {
-    async getContent () {
-      let {data} = await axios.get(`https://api.github.com/repos/${config.repo}/git/blobs/${this.$route.query.sha}`, {
+    async getContent () {      
+      let response = await fetch(`https://api.github.com/repos/${config.repo}/git/blobs/${this.$route.query.sha}`, {
         headers: config.headers
       })
-      this.content = data
+      this.content = await response.json()
     }
   },
   created () {
