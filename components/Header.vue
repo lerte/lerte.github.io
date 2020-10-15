@@ -12,7 +12,7 @@
           <nuxt-link class="navbar-item" to="/typescript">Typescript</nuxt-link>
           <nuxt-link class="navbar-item" to="/about">About</nuxt-link>
         </div>
-        <div class="navbar-end"><a class="navbar-item is-show-mobile" href="//github.com/lerte/lerte.github.io" target="_blank"><i class="fa fa-lg fa-github"></i></a></div>
+        <div class="navbar-end"><a class="navbar-item is-show-mobile" title="Crephy Cosmetics" href="//crephy.com" target="_blank"><i class="fa fa-lg fa-shopping-cart"></i></a></div>
       </div>      
     </nav>
   </div>
