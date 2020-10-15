@@ -3,14 +3,14 @@ branches:
     - source
 language: node_js
 node_js:
-  - "node"
+  - 12
 cache:
   directories:
     - node_modules
 install:
   - yarn
   - yarn generate
-deploy: 
+deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
