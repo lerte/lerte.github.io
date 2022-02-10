@@ -1,19 +1,20 @@
 <template>
   <div class="container">
     <nav class="navbar">
-      <div class="navbar-brand" :class="{showMenu: isActive}">
+      <div class="navbar-brand" :class="{ showMenu: isActive }">
         <nuxt-link class="navbar-item" to="/"><img src="/favicon.ico"/></nuxt-link>
-        <div class="navbar-burger burger" data-target="navMenu" @click="isActive = !isActive" :class="{showMenu: isActive}"><span></span><span></span><span></span>
+        <div class="navbar-burger burger" data-target="navMenu" @click="isActive = !isActive" :class="{ showMenu: isActive }"><span></span><span></span><span></span></div>
       </div>
-      </div>
-      <div class="navbar-menu" id="navMenu" :class="{'is-active': isActive}">
+      <div class="navbar-menu" id="navMenu" :class="{ 'is-active': isActive }">
         <div class="navbar-start">
           <nuxt-link class="navbar-item" to="/">Home</nuxt-link>
           <nuxt-link class="navbar-item" to="/typescript">Typescript</nuxt-link>
           <nuxt-link class="navbar-item" to="/about">About</nuxt-link>
         </div>
-        <div class="navbar-end"><a class="navbar-item is-show-mobile" title="Crephy Cosmetics" href="//crephy.com" target="_blank"><i class="fa fa-lg fa-shopping-cart"></i></a></div>
-      </div>      
+        <div class="navbar-end">
+          <a class="navbar-item is-show-mobile" href="//github.com/lerte" target="_blank"><i class="fa fa-lg fa-github"></i></a>
+        </div>
+      </div>
     </nav>
   </div>
 </template>
@@ -40,14 +41,14 @@
 </style>
 
 <script>
-  export default {
-    watch: {
-      $route () {
-        this.isActive = false
-      }
-    },
-    data: ()=> ({
-      isActive: false
-    })
-  }
+export default {
+  watch: {
+    $route() {
+      this.isActive = false
+    }
+  },
+  data: () => ({
+    isActive: false
+  })
+}
 </script>
